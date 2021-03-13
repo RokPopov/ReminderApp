@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { ScrollView, StyleSheet, Text, View, SafeAreaView, Dimensions} from 'react-native';
+import { ScrollView, StyleSheet, Text, View, SafeAreaView, Dimensions, Image} from 'react-native';
+import { strings } from './constants';
 
 const { width, height } = Dimensions.get('window');
 const pageAmount = 3;
@@ -8,7 +9,14 @@ const pageAmount = 3;
 function WelcomePage() {
   return (
     <View style={styles.container}>
-      <Text>First Screen Welcome Message!</Text>  
+      <Text style={{top:75, fontSize: 48}}>{strings.welcomePage.welcome}</Text>
+      <Text style={{
+        top:150,
+        fontSize: 24,
+        marginLeft: 55,
+        marginRight: 55,
+        textAlign: 'center'
+      }}>{strings.welcomePage.pageOneSummary}</Text>
     </View>
   );
 }
@@ -16,7 +24,13 @@ function WelcomePage() {
 function IntroductionPage() {
   return (
     <View style={styles.container}>
-      <Text>Second Screen Message Lorem ipsum bla bla</Text>  
+      <Text style={{
+        top:75,
+        fontSize: 24,
+        marginLeft: 55,
+        marginRight: 55,
+        textAlign: 'center'
+      }}>{strings.introductionPage.introduction}</Text>
     </View>
   );
 }
@@ -24,7 +38,8 @@ function IntroductionPage() {
 function LoginRegisterPage() {
   return (
     <View style={styles.container}>
-      <Text>Login/Registger bla bla</Text>  
+      <Image style={{top: 100}} source={require('./assets/logo.png')} />
+      <Text style={{top: 250}}>Login/Registger button placeholder</Text>  
     </View>
   );
 }
@@ -73,7 +88,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
     width,
     height
   },
