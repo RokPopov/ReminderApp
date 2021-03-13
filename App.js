@@ -1,25 +1,30 @@
 import 'react-native-gesture-handler';
+import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { createStackNavigator } from '@react-navigation/stack';
+import LoginOrRegister from './components/LoginOrRegister.js'
+
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-    </NavigationContainer>
-  );
-}
+      <Stack.Navigator
+         initialRouteName="LoginOrRegister"
+         screenOptions={{
+         headerStyle: {
+         backgroundColor: "#080808", 
+                    },
+         headerTintColor: "#fff",
+         headerTitleAlign: "center",
+            }}
+          >
+          {/* we can put as many screens as we want here*/}
+          {/*<Stack.Screen name="Home" component={HomeScreen} />*/}
+          <Stack.Screen name="LoginOrRegister" component={LoginOrRegister} />
+          </Stack.Navigator>
+       </NavigationContainer>
+      );
+    }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
