@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { TextInput, View, StyleSheet } from 'react-native';
+import { AntDesign } from '@expo/vector-icons';
 
 export default function TextInputHelper(props) {
 const [input, setInput] = useState("")
 
   return (
-    <View style={styles.view}>
+    <View style={styles.container}>
+      {props.icon && <AntDesign name={props.icon} size={props.size} style={styles.icon} />}
       <TextInput
       numberOfLines={props.numberOfLines} 
       style={styles.textInput}
@@ -20,14 +22,22 @@ const [input, setInput] = useState("")
 
 
 const styles = StyleSheet.create({
-  view: {
-    marginTop: '30%',
-    alignItems: 'center',
+  container: {
+    borderRadius: 25,
+    flexDirection: 'row',
+    width:'85%',
+    marginVertical: '15%',
+    backgroundColor: '#f9f9f9',
+    padding: '5%',
+  },
+  icon: {
+    color: '#4a4a4a',
+    marginRight: 10,
   },
   textInput: {
-    borderColor: '#000',
-    borderBottomWidth: 2,
-    marginBottom: 0,
-    maxWidth:'50%'
+    borderRadius: 25,
+    width:'85%',
+    fontSize: 20,
+    color: '#313131'
   }
 })
