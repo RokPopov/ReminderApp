@@ -1,8 +1,15 @@
 import React from 'react';
 import { SafeAreaView, StyleSheet, View } from 'react-native';
 import { Formik } from 'formik';
+import * as Yup from 'yup';
 import InputComponent from '../components/InputComponent.js';
 import SubmitButton from '../components/SubmitButton.js'
+
+const validationSchema = Yup.object().shape({
+  name: Yup.string().min(2, 'Too short!').max(12, 'Too long!').required('Required!'),
+  email: Yup.string().email('Invalid Email!').label("Email").required('Required!'),
+  password: Yup.string().min(4, 'Too Short!').label("Password").required('Required!'),
+})
 
 export default function RegisterScreen() {
 
@@ -13,7 +20,7 @@ export default function RegisterScreen() {
         initialValues={{ name: '', email: '', password: '', confirmPassword: ''}}
         onSubmit={(values) => console.log(values)}
       >
-        { ({ handleChange, handleSubmit }) =>  (
+        { ({ handleChange, handleSubmit, errors }) =>  (
           <>
       <InputComponent
         icon='user'
@@ -26,6 +33,7 @@ export default function RegisterScreen() {
         autoCorrect={false}
         secureTextEntry={false}
       />
+      <TextInput style={{ color: 'red' }}>{errors.name}</TextInput>
       <InputComponent
         style={styles.uglyHack}
         icon='mail'
@@ -38,6 +46,7 @@ export default function RegisterScreen() {
         autoCorrect={false}
         secureTextEntry={false}
       />
+      <TextInput style={{ color: 'red' }}>{errors.email}</TextInput>
       <InputComponent
         icon='lock'
         size={25}
@@ -51,6 +60,7 @@ export default function RegisterScreen() {
         textContentType='password'  /* -> only works on ios -> user can fill in the pwd from KeyChain */
 
       />
+      <TextInput style={{ color: 'red' }}>{errors.password}</TextInput>
       <InputComponent
         icon='lock'
         size={25}
@@ -64,6 +74,7 @@ export default function RegisterScreen() {
         textContentType='password'  /* -> only works on ios -> user can fill in the pwd from KeyChain */
 
     />
+    <TextInput style={{ color: 'red' }}>{errors.password}</TextInput>
       <View style={styles.button}>
       <SubmitButton
         onPress={handleSubmit}

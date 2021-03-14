@@ -1,10 +1,15 @@
 import React  from 'react';
-import { SafeAreaView, StyleSheet, View } from 'react-native';
+import { SafeAreaView, StyleSheet, View, TextInput } from 'react-native';
 import { Formik } from 'formik';
+import * as Yup from 'yup';
 import InputComponent from '../components/InputComponent.js';
 import SubmitButton from '../components/SubmitButton.js';
 
 
+const validationSchema = Yup.object().shape({
+  email: Yup.string().email('Invalid Email!').label("Email").required('Required!'),
+  password: Yup.string().min(4, 'Too short!').label("Password").required('Required!')
+})
 
 export default function LoginScreen() {
 
@@ -15,36 +20,34 @@ export default function LoginScreen() {
       <Formik
         initialValues={{ email: '', password: '' }}
         onSubmit={(values) => console.log(values)}
+        validationSchema={validationSchema}
       >
-        { ({ handleChange, handleSubmit }) =>  (
+        { ({ handleChange, handleSubmit, errors }) =>  (
           <>
           <InputComponent
-        label="Email"
-        autoCompleteType="email"
-        textContentType="emailAddress"
         icon='mail'
         size={23}
-        numberOfLines={1}
         keyboardType="email-address"
-        onChange={handleChange("email")}      
+        onChangeText={handleChange("email")}      
         placeholder="Enter Email"
         autoCapitalize='none'
         autoCorrect={false}
-        secureTextEntry={false}        
+        secureTextEntry={false} 
+        textContentType='emailAddress'  /* -> only works on ios -> user can fill in the pwd from KeyChain */       
       />
+      <TextInput style={{ color: 'red' }}>{errors.email}</TextInput>
       <InputComponent
-        label="Password"
         icon='lock'
         size={25}
-        numberOfLines={1}
         keyboardType="visible-password"
-        onChange={handleChange("password")}
+        onChangeText={handleChange("password")}
         secureTextEntry
         placeholder="Enter Password"
         autoCapitalize='none'
         autoCorrect={false} 
         textContentType='password'  /* -> only works on ios -> user can fill in the pwd from KeyChain */
       />
+      <TextInput style={{ color: 'red' }}>{errors.password}</TextInput>
       <View style={styles.button}>
       <SubmitButton
         mode='contained'        
