@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { SafeAreaView, StyleSheet, View } from 'react-native';
-import Input from '../helpers/Input.js';
-import SubmitButton from '../helpers/Button.js'
+import InputComponent from '../components/InputComponent.js';
+import SubmitButton from '../components/SubmitButton.js'
 
-export default function Login() {
+export default function RegisterScreen() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -12,7 +12,7 @@ export default function Login() {
   return (
     <SafeAreaView style={styles.screen}>
       <View style={styles.view}>
-      <Input
+      <InputComponent
         style={styles.uglyHack}
         icon='user'
         size={23}
@@ -24,7 +24,7 @@ export default function Login() {
         autoCorrect={false}
         secureTextEntry={false}
       />
-      <Input
+      <InputComponent
         style={styles.uglyHack}
         icon='mail'
         size={23}
@@ -36,7 +36,7 @@ export default function Login() {
         autoCorrect={false}
         secureTextEntry={false}
       />
-      <Input
+      <InputComponent
         icon='lock'
         size={25}
         numberOfLines={1}
@@ -49,7 +49,7 @@ export default function Login() {
         textContentType='password'  /* -> only works on ios -> user can fill in the pwd from KeyChain */
 
       />
-      <Input
+      <InputComponent
         icon='lock'
         size={25}
         numberOfLines={1}

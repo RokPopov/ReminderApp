@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import { SafeAreaView, StyleSheet, TextInput, View } from 'react-native';
-import Input from '../helpers/Input.js';
-import SubmitButton from '../helpers/Button.js'
+import InputComponent from '../components/InputComponent.js';
+import SubmitButton from '../components/SubmitButton.js'
 
-export default function Login() {
+export default function LoginScreen() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   return (
     <SafeAreaView style={styles.screen}>
       <View style={styles.view}>
-      <Input
+      <InputComponent
         icon='mail'
         size={23}
         numberOfLines={1}
@@ -21,7 +21,7 @@ export default function Login() {
         autoCorrect={false}
         secureTextEntry={false}
       />
-      <Input
+      <InputComponent
         icon='lock'
         size={25}
         numberOfLines={1}

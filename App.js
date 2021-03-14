@@ -4,10 +4,9 @@ import { Provider } from 'react-native-paper';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import {  useDimensions, useDeviceOrientation } from '@react-native-community/hooks';
-import StyleSheet from 'react-native';
-import Login from './components/screens/Login.js'
-import Register from './components/screens/Register.js'
-import WelcomeScreen from './components/WelcomeScreen'
+import LoginScreen from './screens/LoginScreen.js'
+import RegisterScreen from './screens/RegisterScreen.js'
+import WelcomeScreen from './screens/WelcomeScreen'
 
 const Stack = createStackNavigator();
 
@@ -22,7 +21,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator
           marginTop={ landscape ? '100%' : '10%' }
-          initialRouteName={Login}
+          initialRouteName={WelcomeScreen}
           screenOptions={{
           backgroundColor: '#000',
           headerTintColor: "#c7c7c7",
@@ -30,8 +29,8 @@ export default function App() {
         }}
           >
           <Stack.Screen name="Welcome" component={WelcomeScreen} />
-          <Stack.Screen name="Login" component={Login} />
-          <Stack.Screen name="Register" component={Register} />
+          <Stack.Screen name="Login" component={LoginScreen} />
+          <Stack.Screen name="Register" component={RegisterScreen} />
           </Stack.Navigator>
        </NavigationContainer>
        </Provider>

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { TextInput, View, StyleSheet, ShadowPropTypesIOS } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 
-export default function Input(props) {
+export default function InputComponent(props) {
   const [input, setInput] = useState("")
 
   return (

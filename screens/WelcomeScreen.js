@@ -1,8 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { ScrollView, StyleSheet, Text, View, SafeAreaView, Dimensions, Image} from 'react-native';
-import { strings } from './constants';
-import SubmitButton from './helpers/Button';
+import { strings } from '../helpers/constants';
+import SubmitButton from '../components/SubmitButton';
 
 const { width, height } = Dimensions.get('window');
 const pageAmount = 3;
