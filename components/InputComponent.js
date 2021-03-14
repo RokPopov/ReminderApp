@@ -18,6 +18,12 @@ export default function InputComponent(props) {
       keyboardType={props.keyboardType}
       secureTextEntry={props.secureTextEntry}
       textContentType={props.textContentType}
+      label={props.label}
+      value={props.value}
+      error={props.error}
+      errorText={props.errorText}
+      autoCompleteType={props.autoCompleteType}
+      textContentType={props.textContentType}
       />
     </View>
   )
