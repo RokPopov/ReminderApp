@@ -41,6 +41,6 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     width:'85%',
     fontSize: 20,
-    color: '#f9f9f9'
+    color: '#4a4a4a'
   }
 })

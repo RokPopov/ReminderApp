@@ -21,7 +21,8 @@ export default function Login() {
         onChange={(text) => setEmail(text)}
         placeholder="Enter Email"
         autoCapitalize='none'
-        auroCorrect={false}
+        autoCorrect={false}
+        secureTextEntry={false}
       />
       <TextInputHelper
         icon='lock'
@@ -32,7 +33,7 @@ export default function Login() {
         secureTextEntry
         placeholder="Enter Password"
         autoCapitalize='none'
-        auroCorrect={false} 
+        autoCorrect={false} 
         textContentType='password'  /* -> only works on ios -> user can fill in the pwd from KeyChain */
 
       />
