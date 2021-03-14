@@ -1,14 +1,16 @@
 import React  from 'react';
-import { SafeAreaView, StyleSheet, View, TextInput } from 'react-native';
+import { SafeAreaView, StyleSheet, View, Text } from 'react-native';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
+
 import InputComponent from '../components/InputComponent.js';
 import SubmitButton from '../components/SubmitButton.js';
+import ErrorMessage from '../components/ErrorMessage.js';
 
 
 const validationSchema = Yup.object().shape({
-  email: Yup.string().email('Invalid Email!').label("Email").required('Required!'),
-  password: Yup.string().min(4, 'Too short!').label("Password").required('Required!')
+  email: Yup.string().email('Invalid Email!').required('Required!'),
+  password: Yup.string().min(4, 'Too short!').required('Required!')
 })
 
 export default function LoginScreen() {
@@ -35,7 +37,7 @@ export default function LoginScreen() {
         secureTextEntry={false} 
         textContentType='emailAddress'  /* -> only works on ios -> user can fill in the pwd from KeyChain */       
       />
-      <TextInput style={{ color: 'red' }}>{errors.email}</TextInput>
+      <ErrorMessage error={errors.email} />
       <InputComponent
         icon='lock'
         size={25}
@@ -47,7 +49,7 @@ export default function LoginScreen() {
         autoCorrect={false} 
         textContentType='password'  /* -> only works on ios -> user can fill in the pwd from KeyChain */
       />
-      <TextInput style={{ color: 'red' }}>{errors.password}</TextInput>
+      <ErrorMessage error={errors.password} />
       <View style={styles.button}>
       <SubmitButton
         mode='contained'        

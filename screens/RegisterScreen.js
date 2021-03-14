@@ -1,9 +1,12 @@
 import React from 'react';
-import { SafeAreaView, StyleSheet, View } from 'react-native';
+import { SafeAreaView, StyleSheet, View, Text } from 'react-native';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
+
 import InputComponent from '../components/InputComponent.js';
-import SubmitButton from '../components/SubmitButton.js'
+import SubmitButton from '../components/SubmitButton.js';
+import ErrorMessage from '../components/ErrorMessage.js';
+
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().min(2, 'Too short!').max(12, 'Too long!').required('Required!'),
@@ -33,7 +36,7 @@ export default function RegisterScreen() {
         autoCorrect={false}
         secureTextEntry={false}
       />
-      <TextInput style={{ color: 'red' }}>{errors.name}</TextInput>
+      <ErrorMessage error={errors.name} />
       <InputComponent
         style={styles.uglyHack}
         icon='mail'
@@ -46,7 +49,7 @@ export default function RegisterScreen() {
         autoCorrect={false}
         secureTextEntry={false}
       />
-      <TextInput style={{ color: 'red' }}>{errors.email}</TextInput>
+      <ErrorMessage error={errors.email} />
       <InputComponent
         icon='lock'
         size={25}
@@ -60,7 +63,7 @@ export default function RegisterScreen() {
         textContentType='password'  /* -> only works on ios -> user can fill in the pwd from KeyChain */
 
       />
-      <TextInput style={{ color: 'red' }}>{errors.password}</TextInput>
+      <ErrorMessage error={errors.password} />
       <InputComponent
         icon='lock'
         size={25}
@@ -74,7 +77,7 @@ export default function RegisterScreen() {
         textContentType='password'  /* -> only works on ios -> user can fill in the pwd from KeyChain */
 
     />
-    <TextInput style={{ color: 'red' }}>{errors.password}</TextInput>
+    <ErrorMessage error={errors.password} />
       <View style={styles.button}>
       <SubmitButton
         onPress={handleSubmit}
