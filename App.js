@@ -20,7 +20,7 @@ export default function App() {
             }}
           >
           {/* we can put as many screens as we want here*/}
-          {/*<Stack.Screen name="Home" component={HomeScreen} />*/}
+          {/*<Stack.Screen name="Welcome" component={WelcomeScreen} />*/}
           <Stack.Screen name="LoginOrRegister" component={LoginOrRegister} />
           </Stack.Navigator>
        </NavigationContainer>
