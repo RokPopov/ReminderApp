@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import { SafeAreaView, StyleSheet, View } from 'react-native';
-import TextInputHelper from '../helpers/TextInputHelper.js';
-import SubmitButtonHelper from '../helpers/SubmitButtonHelper.js'
-
-
+import Input from '../helpers/Input.js';
+import SubmitButton from '../helpers/Button.js'
 
 export default function Login() {
   const [name, setName] = useState("");
@@ -14,7 +12,7 @@ export default function Login() {
   return (
     <SafeAreaView style={styles.screen}>
       <View style={styles.view}>
-      <TextInputHelper
+      <Input
         style={styles.uglyHack}
         icon='user'
         size={23}
@@ -26,7 +24,7 @@ export default function Login() {
         autoCorrect={false}
         secureTextEntry={false}
       />
-      <TextInputHelper
+      <Input
         style={styles.uglyHack}
         icon='mail'
         size={23}
@@ -38,7 +36,7 @@ export default function Login() {
         autoCorrect={false}
         secureTextEntry={false}
       />
-      <TextInputHelper
+      <Input
         icon='lock'
         size={25}
         numberOfLines={1}
@@ -50,7 +48,8 @@ export default function Login() {
         autoCorrect={false} 
         textContentType='password'  /* -> only works on ios -> user can fill in the pwd from KeyChain */
 
-      /><TextInputHelper
+      />
+      <Input
         icon='lock'
         size={25}
         numberOfLines={1}
@@ -64,7 +63,7 @@ export default function Login() {
 
     />
       <View style={styles.button}>
-      <SubmitButtonHelper
+      <SubmitButton
         onPress={() => console.log('I"m taking a little break')}
         title='register'
       />

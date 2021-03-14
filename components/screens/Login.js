@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import { SafeAreaView, StyleSheet, View } from 'react-native';
-import TextInputHelper from '../helpers/TextInputHelper.js';
-import SubmitButtonHelper from '../helpers/SubmitButtonHelper.js'
-
-
+import { SafeAreaView, StyleSheet, TextInput, View } from 'react-native';
+import Input from '../helpers/Input.js';
+import SubmitButton from '../helpers/Button.js'
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -12,8 +10,7 @@ export default function Login() {
   return (
     <SafeAreaView style={styles.screen}>
       <View style={styles.view}>
-      <TextInputHelper
-        style={styles.uglyHack}
+      <Input
         icon='mail'
         size={23}
         numberOfLines={1}
@@ -24,7 +21,7 @@ export default function Login() {
         autoCorrect={false}
         secureTextEntry={false}
       />
-      <TextInputHelper
+      <Input
         icon='lock'
         size={25}
         numberOfLines={1}
@@ -38,7 +35,7 @@ export default function Login() {
 
       />
       <View style={styles.button}>
-      <SubmitButtonHelper        
+      <SubmitButton        
         onPress={() => console.log('Tap')}
         title='login'
       />
