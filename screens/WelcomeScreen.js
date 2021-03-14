@@ -1,5 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
 import { ScrollView, StyleSheet, Text, View, SafeAreaView, Dimensions, Image} from 'react-native';
 import { strings } from '../helpers/constants';
 import SubmitButton from '../components/SubmitButton';
@@ -8,6 +9,7 @@ const { width, height } = Dimensions.get('window');
 const pageAmount = 3;
 
 function WelcomePage() {
+ 
   return (
     <View style={styles.container}>
       <Text style={{top:75, fontSize: 48}}>{strings.welcomePage.welcome}</Text>
@@ -36,18 +38,19 @@ function IntroductionPage() {
   );
 }
 
-function LoginRegisterPage() {
+function LoginRegisterPage({ route }) {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <Image style={{top: 100}} source={require('../assets/logo.png')} />
       <View style={{top: 200}}>
         <SubmitButton 
           title="Login"
-          onPress={()=>{}}
+          onPress={(event) => navigation.navigate("Login")}
         />
         <SubmitButton 
           title="Sign up"
-          onPress={()=>{}}
+          onPress={(event) => navigation.navigate("Register")}
         />
       </View>
     </View>
