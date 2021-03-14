@@ -7,6 +7,7 @@ import {  useDimensions, useDeviceOrientation } from '@react-native-community/ho
 import StyleSheet from 'react-native';
 import Login from './components/screens/Login.js'
 import Register from './components/screens/Register.js'
+import WelcomeScreen from './components/WelcomeScreen'
 
 const Stack = createStackNavigator();
 
@@ -28,7 +29,7 @@ export default function App() {
           headerTitleAlign: "center"
         }}
           >
-          {/*<Stack.Screen name="Welcome" component={WelcomeScreen} />*/}
+          <Stack.Screen name="Welcome" component={WelcomeScreen} />
           <Stack.Screen name="Login" component={Login} />
           <Stack.Screen name="Register" component={Register} />
           </Stack.Navigator>

@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     minWidth: '70%',
     padding: '5%',
-    marginVertical: '10%'
+    marginTop: 10
   },
   text: {
     color: '#f9f9f9',

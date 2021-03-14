@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { ScrollView, StyleSheet, Text, View, SafeAreaView, Dimensions, Image} from 'react-native';
 import { strings } from './constants';
+import SubmitButton from './helpers/Button';
 
 const { width, height } = Dimensions.get('window');
 const pageAmount = 3;
@@ -38,8 +39,17 @@ function IntroductionPage() {
 function LoginRegisterPage() {
   return (
     <View style={styles.container}>
-      <Image style={{top: 100}} source={require('./assets/logo.png')} />
-      <Text style={{top: 250}}>Login/Registger button placeholder</Text>  
+      <Image style={{top: 100}} source={require('../assets/logo.png')} />
+      <View style={{top: 200}}>
+        <SubmitButton 
+          title="Login"
+          onPress={()=>{}}
+        />
+        <SubmitButton 
+          title="Sign up"
+          onPress={()=>{}}
+        />
+      </View>
     </View>
   );
 }
