@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TextInput, View, StyleSheet } from 'react-native';
+import { TextInput, View, StyleSheet, ShadowPropTypesIOS } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 
 export default function TextInputHelper(props) {
@@ -9,12 +9,15 @@ const [input, setInput] = useState("")
     <View style={styles.container}>
       {props.icon && <AntDesign name={props.icon} size={props.size} style={styles.icon} />}
       <TextInput
+      autoCapitalize={props.autoCapitalize}
+      autoCorrect={props.autoCorrect}
       numberOfLines={props.numberOfLines} 
       style={styles.textInput}
       placeholder={props.placeholder}
       onChange={(text) => setInput(text)}
       keyboardType={props.keyboardType}
       secureTextEntry={props.secureTextEntry}
+      textContentType={props.textContentType}
       />
     </View>
   )
@@ -23,7 +26,7 @@ const [input, setInput] = useState("")
 
 const styles = StyleSheet.create({
   container: {
-    borderRadius: 25,
+    borderRadius: 40,
     flexDirection: 'row',
     width:'85%',
     marginVertical: '15%',
@@ -38,6 +41,6 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     width:'85%',
     fontSize: 20,
-    color: '#313131'
+    color: '#f9f9f9'
   }
 })
