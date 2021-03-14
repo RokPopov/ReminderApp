@@ -37,10 +37,12 @@ export default function Login() {
         textContentType='password'  /* -> only works on ios -> user can fill in the pwd from KeyChain */
 
       />
-      <SubmitButtonHelper
-        onPress={() => console.log('I"m taking a little break')}
+      <View style={styles.button}>
+      <SubmitButtonHelper        
+        onPress={() => console.log('Tap')}
         title='login'
       />
+      </View>
       </View>
     </SafeAreaView>
   );
@@ -54,6 +56,9 @@ const styles = StyleSheet.create({
   },
   view: {
     alignItems: 'center',
+  },
+  button: {
+    marginTop: '70%'
   }
 })
 
