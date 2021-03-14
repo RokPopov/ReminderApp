@@ -14,16 +14,14 @@ export default function InputComponent(props) {
       numberOfLines={props.numberOfLines} 
       style={styles.textInput}
       placeholder={props.placeholder}
-      onChange={(text) => setInput(text)}
+      // onChange={(text) => setInput(text)}
       keyboardType={props.keyboardType}
       secureTextEntry={props.secureTextEntry}
       textContentType={props.textContentType}
       label={props.label}
-      value={props.value}
-      error={props.error}
-      errorText={props.errorText}
       autoCompleteType={props.autoCompleteType}
       textContentType={props.textContentType}
+      password={props.password}
       />
     </View>
   )

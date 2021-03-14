@@ -1,10 +1,8 @@
 import React  from 'react';
 import { SafeAreaView, StyleSheet, View } from 'react-native';
+import { Formik } from 'formik';
 import InputComponent from '../components/InputComponent.js';
 import SubmitButton from '../components/SubmitButton.js';
-import { emailValidator } from '../validators/emailValidator.js';
-import { passwordValidator } from '../validators/passwordValidator.js';
-import { Formik } from 'formik';
 
 
 
@@ -16,7 +14,7 @@ export default function LoginScreen() {
 
       <Formik
         initialValues={{ email: '', password: '' }}
-        onSubmit={values => console.log(values)}
+        onSubmit={(values) => console.log(values)}
       >
         { ({ handleChange, handleSubmit }) =>  (
           <>
@@ -36,7 +34,6 @@ export default function LoginScreen() {
       />
       <InputComponent
         label="Password"
-        value={password.value}
         icon='lock'
         size={25}
         numberOfLines={1}
