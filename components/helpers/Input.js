@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { TextInput, View, StyleSheet, ShadowPropTypesIOS } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 
-export default function TextInputHelper(props) {
-const [input, setInput] = useState("")
+export default function Input(props) {
+  const [input, setInput] = useState("")
 
   return (
     <View style={styles.container}>
