@@ -54,10 +54,7 @@ export default function LoginScreen() {
       </View>
           </>
         )}
-      </Formik>
-
-      
-      
+      </Formik>    
       </View>
     </SafeAreaView>
   );

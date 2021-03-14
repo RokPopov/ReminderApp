@@ -1,24 +1,26 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { SafeAreaView, StyleSheet, View } from 'react-native';
+import { Formik } from 'formik';
 import InputComponent from '../components/InputComponent.js';
 import SubmitButton from '../components/SubmitButton.js'
 
 export default function RegisterScreen() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
 
   return (
     <SafeAreaView style={styles.screen}>
       <View style={styles.view}>
+      <Formik
+        initialValues={{ name: '', email: '', password: '', confirmPassword: ''}}
+        onSubmit={(values) => console.log(values)}
+      >
+        { ({ handleChange, handleSubmit }) =>  (
+          <>
       <InputComponent
-        style={styles.uglyHack}
         icon='user'
         size={23}
         numberOfLines={1}
         keyboardType="default"
-        onChange={(text) => setEmail(text)}
+        onChange={handleChange("name")}
         placeholder="Name"
         autoCapitalize='none'
         autoCorrect={false}
@@ -30,7 +32,7 @@ export default function RegisterScreen() {
         size={23}
         numberOfLines={1}
         keyboardType="email-address"
-        onChange={(text) => setEmail(text)}
+        onChange={handleChange("email")}
         placeholder="Email"
         autoCapitalize='none'
         autoCorrect={false}
@@ -41,7 +43,7 @@ export default function RegisterScreen() {
         size={25}
         numberOfLines={1}
         keyboardType="visible-password"
-        onChange={(text) => setPassword(text)}
+        onChange={handleChange("password")}
         secureTextEntry
         placeholder="Password"
         autoCapitalize='none'
@@ -54,7 +56,7 @@ export default function RegisterScreen() {
         size={25}
         numberOfLines={1}
         keyboardType="visible-password"
-        onChange={(text) => setPassword(text)}
+        onChange={handleChange("confirmPassword")}
         secureTextEntry
         placeholder="Confirm Password"
         autoCapitalize='none'
@@ -64,10 +66,13 @@ export default function RegisterScreen() {
     />
       <View style={styles.button}>
       <SubmitButton
-        onPress={() => console.log('I"m taking a little break')}
+        onPress={handleSubmit}
         title='register'
       />
       </View>
+      </>
+        )}
+      </Formik>
       </View>
     </SafeAreaView>
   );
