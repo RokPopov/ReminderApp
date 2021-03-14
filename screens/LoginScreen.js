@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { SafeAreaView, StyleSheet, TextInput, View } from 'react-native';
 import InputComponent from '../components/InputComponent.js';
-import SubmitButton from '../components/SubmitButton.js'
-
+import SubmitButton from '../components/SubmitButton.js';
+import { emailValidator } from '../validators/emailValidator.js';
+import { passwordValidator } from '../validators/passwordValidator.js';
 export default function LoginScreen() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

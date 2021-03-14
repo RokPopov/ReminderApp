@@ -40,6 +40,7 @@ function IntroductionPage() {
 
 function LoginRegisterPage({ route }) {
   const navigation = useNavigation();
+  
   return (
     <View style={styles.container}>
       <Image style={{top: 100}} source={require('../assets/logo.png')} />
